@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  width: 80vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 600px;
+  gap: 100px;
+  z-index: 2;
+
+  & img {
+    width: 350px;
+  }
+
+  & nav {
+    & ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & li {
+      list-style: none;
+
+      & a {
+        display: inline-block;
+        padding: .75rem 1.25rem;
+        border-radius: 10rem;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1rem;
+        letter-spacing: .15rem;
+        transition: all .3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      & a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #9ac6e7;
+        border-radius: 10rem;
+        z-index: -2;
+      }
+
+      & a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #72A0C1;
+        transition: all .5s;
+        border-radius: 10rem;
+        z-index: -1;
+      }
+
+      & a:hover {
+        color: white;
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+section {
+  background-image: radial-gradient(hsla(0, 0%, 0%, 0.2), white);
+  height: 100vh;
+  position: relative;
+
+  & .lista {
+    width: 70vw;
+    height: 100%;
+    margin: auto;
+    position: relative;
+
+    & .item {
+      position: absolute;
+      inset: 0;
+
+      & .img-profissional {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        width: 70%;
+
+        & img {
+          width: 40%;
+        }
+      }
+
+      & .conteudo {
+        position: absolute;
+        right: 100px;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 20px;
+        margin-top: 21%;
+
+        & .nome-tittulo {
+          font-weight: bold;
+          font-size: 3em;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: black;
+        }
+
+        & .especializacao {
+          font-size: 2em;
+          line-height: 1em;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          color: black;
+
+          & span {
+            font-size: 0.7em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+          }
+        }
+
+        & .descricao {
+          color: black;
+          font-size: 1.3em;
+          letter-spacing: 1px;
+          text-align: start;
+          width: 50%;
+          list-style: disc;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          
+          & li {
+            padding: 10px;
+          }
+        }
+
+        & .agendar-btn {
+          border-radius: 30px;
+          height: 45px;
+          width: 120px;
+          text-transform: uppercase;
+          border: 1px solid rgba(140, 140, 140, 0.4);
+          background-color: rgba(140, 140, 140, 0.4);
+          color: black;
+          cursor: pointer;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: 550;
+          transition: 0.5s;
+        }
+
+        & .agendar-btn:hover {
+          background-color:  rgb(150, 150, 150);
+          border: 1px solid rgba(140, 140, 140, 0.4);
+          letter-spacing: 1px;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      border-top: 3px solid rgba(240, 240, 240, 0.5);
+      position: absolute;
+      height: 200px;
+      width: 100%;
+      top: 50%;
+    }
+  }
+
+  .setas {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+
+    & button:nth-child(1) {
+      & img {
+        transform: scale(-1);
+      }
+    }
+
+    & button {
+      top: 60%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+
+      & img {
+        width: 30px;
+        margin-top: 4px;
+      }
+
+      &:hover {
+        background-color: rgba(140, 140, 140, 0.4);
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+section {
+
+  & .lista {
+
+    & .item {
+      transform: translateX(100vw);
+      transition: 0.5s;
+
+      & .img-profissional {
+
+        & img {
+          transform: rotate(0);
+          transition: 0.5s;
+          transition-delay: 0.3s;
+        }
+      }
+
+      & .conteudo {
+
+        & .nome-tittulo, .especializacao, .descricao, .agendar-btn {
+          transform: translateX(200px);
+          transition: 0.7s;
+          transition-delay: 0.3s;
+        }
+
+        & .especializacao {
+          transition-delay: 0.5s;
+        }
+
+        & .descricao {
+          transition-delay: 0.7s;
+        }
+
+        & .agendar-btn {
+          transition-delay: 0.9s;
+        }
+      }
+    }
+  }
+}
